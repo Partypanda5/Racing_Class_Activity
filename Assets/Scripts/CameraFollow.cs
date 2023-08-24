@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float cameraHeight = 2f; // How much above (or below) the target the camera should stay.
     public float smoothSpeed = 0.125f; // This will make the camera movement smoother.
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Calculate the desired position behind the target and with the specified height
         Vector3 desiredPosition = target.position - target.forward * distanceBehind + Vector3.up * cameraHeight;
