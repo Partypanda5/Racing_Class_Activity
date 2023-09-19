@@ -1,29 +1,23 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    int index;
-    public List<GameObject> players = new List<GameObject>();
-    PlayerInputManager MultiplayerManager;
+    public List<PlayerSpawn> playerSpawns = new List<PlayerSpawn>();
+
+    [Serializable]
+    public struct PlayerSpawn
+    {
+        public GameObject PlayerPrefab;
+        public Transform SpawnTransform;
+    }
 
     private void Start()
     {
-        MultiplayerManager = GetComponent<PlayerInputManager>();
-        index = 0;
-        MultiplayerManager.playerPrefab = players[index];
-
-        //PlayerInput.Instantiate(prefab: playerOnePrefab, playerIndex: 0, controlScheme: "Controller", pairWithDevice: Gamepad.current, splitScreenIndex: 0);
-        //PlayerInput.Instantiate(prefab: playerTwoPrefab, playerIndex: 1, controlScheme: "Player01", pairWithDevice: Keyboard.current, splitScreenIndex: 1);
-    }
-
-    public void spawnNextPlayer(PlayerInput input) 
-    {
-        index++;
-        if (index >= players.Count) 
-        { 
-            index = 0; 
+        foreach (PlayerSpawn playerSpawn in playerSpawns)
+        {
+            Instantiate(playerSpawn.PlayerPrefab, playerSpawn.SpawnTransform.position, playerSpawn.SpawnTransform.rotation);
         }
     }
 }

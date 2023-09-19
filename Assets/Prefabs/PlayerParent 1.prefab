@@ -395,7 +395,7 @@ MonoBehaviour:
     m_ActionId: fe26d2bd-1ff1-480b-95be-cec4ffde7182
     m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 2163239484842544897}

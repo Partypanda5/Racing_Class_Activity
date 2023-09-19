@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 [RequireComponent (typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+
+    public Slider myHealth;
+
     [Header("Character Controller")]
     private CharacterController controller;
 
@@ -44,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
     public void playerShoot(InputAction.CallbackContext context) 
     {
         shoot = context.action.triggered;
+    }
+
+    public void DebugUIPlease() 
+    {
+        Debug.Log("Clicked Button");
     }
 
     private void Start()
